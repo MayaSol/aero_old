@@ -1,0 +1,47 @@
+mixin nav(nav,menuMods)
+
+	//- Принимает:
+	//- 	nav {array} - массив с пунктами меню
+			menuMods - список модификаторов
+	//- Вызов:
+		-
+		var myMenu = [
+		  {
+		    'text':'Пункт1',
+		    'url':'/',
+		  },
+		  {
+		    'text':'Пункт2',
+		    'url':'/',
+		    'mods': 'separator, active',
+		  },
+		];
+		+nav(myMenu)
+
+	-
+		var menuClass = '';
+		if(typeof(menuMods) !== 'undefined' && menuMods) {
+			var modsList = menuMods.split(',');
+			for (var i = 0; i < modsList.length; i++) {
+			menuClass = menuClass + ' nav--' + modsList[i].trim();
+			}
+		}
+
+	+b.UL.nav(class=menuClass)&attributes(attributes)
+		each navItem in nav
+
+			-
+				// список модификаторов
+				var allMods = '';
+				if(typeof(navItem.mods) !== 'undefined') {
+					var modsList = navItem.mods.split(',');
+					for (var i = 0; i < modsList.length; i++) {
+					allMods = allMods + ' nav__item--' + modsList[i].trim();
+					}
+				}
+
+			li.menu__item(class=allMods)
+				if(typeof(navItem.url) !== 'undefined')
+					a.menu__link(href=navItem.url)!= navItem.text
+				else
+					span.menu__link!= navItem.text
