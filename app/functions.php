@@ -16,6 +16,7 @@ if ( ! function_exists( 'aero_setup' ) ) :
 	 * as indicating support for post thumbnails.
 	 */
 	function aero_setup() {
+
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
@@ -44,7 +45,7 @@ if ( ! function_exists( 'aero_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'aero' ),
+			'main-menu-top' => esc_html__( 'Main Menu Top', 'aero' ),
 		) );
 
 		/*
@@ -122,13 +123,10 @@ add_action( 'widgets_init', 'aero_widgets_init' );
 function aero_scripts() {
 	wp_enqueue_style( 'aero-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'aero-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+/*Inserted automatically by gulp (gulp copy:js) Start*/
+/*SCRIPTS*/
+/*Inserted automatically by gulp (gulp copy:js) End*/
 
-	wp_enqueue_script( 'aero-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
 }
 add_action( 'wp_enqueue_scripts', 'aero_scripts' );
 
@@ -153,9 +151,29 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
+ * Custom menu
+ */
+require get_template_directory() . '/inc/custom-menu.php';
+
+/**
+*/
+require get_template_directory() . '/inc/icon-functions.php';
+
+
+/**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+
+if ( ! function_exists('write_log')) {
+   function write_log ( $log )  {
+      if ( is_array( $log ) || is_object( $log ) ) {
+         error_log( print_r( $log, true ) );
+      } else {
+         error_log( $log );
+      }
+   }
+}

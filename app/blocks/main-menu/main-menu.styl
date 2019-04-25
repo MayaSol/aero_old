@@ -1,0 +1,21 @@
+.main-menu
+	&__link
+		font-family $font-family--headings
+		font-size 1.8rem
+		text-transform uppercase
+		color $grey
+		&:active,
+		&:visited
+			color $grey
+		&:hover
+			color $blue
+	.sub-menu
+		display block
+
+
+@media ({$mobile-widths-only})
+	.main-menu
+		&--closed
+			position relative
+
+

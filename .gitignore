@@ -16,6 +16,7 @@ dist
 *.swp
 *.vi
 *~
+*.sql
 
 # OS or Editor folders
 *.sublime-grunt.cache
@@ -41,3 +42,6 @@ bower_components
 node_modules
 npm-debug.log
 .happypack/
+
+# Others
+aero

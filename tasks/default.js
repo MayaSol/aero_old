@@ -26,8 +26,10 @@ gulp.task('build', () => (
 		'styles:dependencies',
 		'scripts',
 		'copy',
+		'copy:js',
 		'copy:php',
-		'templates'
+		'templates',
+		'deploy'
 	)
 ));
 
@@ -37,3 +39,4 @@ gulp.task('deploy', () => (
 		'deploy-copy'
 	)
 ));
+

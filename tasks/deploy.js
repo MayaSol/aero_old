@@ -6,6 +6,6 @@ import gulp from 'gulp';
 //));
 
 gulp.task('deploy-copy', () => (
-	gulp.src(['dist/**/*']).pipe(gulp.dest('/var/www/aero/wp-content/themes/wp-jade-start/'))
+	gulp.src(['dist/**/*']).pipe(gulp.dest('/var/www/aero/wp-content/themes/aero/'))
 ));
 

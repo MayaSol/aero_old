@@ -14,10 +14,17 @@ tasks/deploy.js
 - Удалять все из Dist перед новой сборкой и при Деплое
 	clean.js
 	npm install --save-dev del
+----------------------------------------------------
+ - main-menu block 
+   - navigation.js
 
+ - helpers 
+   - normalize.css
 
+ - tasks
+   - copy.js
 
-
+npm install --save-dev gulp-concat
 
 
 -------------------
@@ -25,3 +32,8 @@ tasks/deploy.js
 11:59 - index.php
 
 12:12 - index.php
+
+--------------------------------
+24.04
+10:25 - TOP MENU
+11:07 - burger from nth-start-project
