@@ -15,7 +15,7 @@
 	"extendPref": "@extends",
 	"globalDupe": false,
 	"indentPref": false,
-	"leadingZero": "never",
+	"leadingZero": "always",
 	"maxErrors": false,
 	"maxWarnings": false,
 	// "mixed": true, // bug: throw error when there are spaces after rule before comment
@@ -31,6 +31,7 @@
 	"sortOrder": [ // discuss 7
 		"all", // all: initial should be first
 
+		"display",
 		"position",
 		"z-index",
 		"top",
@@ -53,7 +54,6 @@
 		"padding-left",
 		"padding-bottom",
 
-		"display",
 		"visibility",
 		"float",
 		"clear",

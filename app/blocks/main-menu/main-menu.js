@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function (){
-	let dropdownToggle;
 	const container = document.querySelector('.main-menu');
 	let itemsHasChildren = container.querySelectorAll('.menu-item-has-children > a:first-of-type, .page-item-has-children > a:first-of-type');
 
@@ -34,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function (){
 
 	// Добавить кнопки открытия подменю к соответствующим пунктам меню
 	for (let i = 0; i < itemsHasChildren.length; i++) {
-		dropdownToggle = createDropDownToggle(itemsHasChildren[i]);
+		let dropdownToggle = createDropDownToggle(itemsHasChildren[i]);
 		insertAfter(dropdownToggle, itemsHasChildren[i]);
 	}
 
@@ -45,9 +44,9 @@ document.addEventListener('DOMContentLoaded', function (){
 		this.parentNode.querySelector('.sub-menu').classList.toggle('toggled-on');
 	}
 
-	dropdownToggleAll = container.querySelectorAll('.dropdown-toggle');
+	let dropdownToggleAll = container.querySelectorAll('.dropdown-toggle');
 	for (let i = 0; i < dropdownToggleAll.length; i++) {
-		dropdownToggleAll[i].addEventListener('click',onDropdownToggleClick);
+		dropdownToggleAll[i].addEventListener('click', onDropdownToggleClick);
 	}
 
 

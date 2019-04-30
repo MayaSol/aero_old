@@ -3,7 +3,6 @@
 		display flex
 	&__link
 		display block
-		//position relative
 		padding 1em 1.25em
 		font-family $font-family--headings
 		font-size 1.8rem
@@ -14,12 +13,12 @@
 			color $grey
 		&:hover
 			color $blue
-		.icon {
+		.icon
 			position absolute
-			right 0
 			top 50%
+			right 0
 			transform translateY(-50%)
-		}
+
 .sub-menu
 	display none
 	padding-left 1.5em
@@ -39,9 +38,6 @@
 			.icon
 				display none
 
-//		.sub-menu
-//			position relative
-
 		.dropdown-toggle
 			position absolute
 			top 0
@@ -50,7 +46,7 @@
 			transform translateY(50%)
 			&.toggled-on
 				.icon
-					transform: rotate(180deg);
+					transform rotate(180deg)
 
 	.menu-item-has-children
 		position relative
@@ -67,8 +63,8 @@
 		.icon
 			transform translateY(-50%) rotate(-90deg)
 		.sub-menu
-			left 100%
 			top 0
+			left 100%
 
 	.dropdown-toggle
 		display none
