@@ -25,15 +25,9 @@ tasks/deploy.js
    - copy.js
 
 npm install --save-dev gulp-concat
-
-
 -------------------
-11:06 - Вставить комменты с описанием темы в итоговый файл стилей
-11:59 - index.php
 
-12:12 - index.php
+burger.styl
+main-menu.pug
+main-menu.styl
 
---------------------------------
-24.04
-10:25 - TOP MENU
-11:07 - burger from nth-start-project

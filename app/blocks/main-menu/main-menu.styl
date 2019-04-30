@@ -1,5 +1,10 @@
 .main-menu
+	&__items
+		display flex
 	&__link
+		display block
+		//position relative
+		padding 1em 1.25em
 		font-family $font-family--headings
 		font-size 1.8rem
 		text-transform uppercase
@@ -9,13 +14,64 @@
 			color $grey
 		&:hover
 			color $blue
-	.sub-menu
+		.icon {
+			position absolute
+			right 0
+			top 50%
+			transform translateY(-50%)
+		}
+.sub-menu
+	display none
+	padding-left 1.5em
+	&.toggled-on
 		display block
+	.main-menu__link
+		width 16em
 
 
 @media ({$mobile-widths-only})
 	.main-menu
-		&--closed
+		&__items
+			display none
+		&__items--open
+			display block
+		&__link
+			.icon
+				display none
+
+//		.sub-menu
+//			position relative
+
+		.dropdown-toggle
+			position absolute
+			top 0
+			right 0
+			padding 0.5em
+			transform translateY(50%)
+			&.toggled-on
+				.icon
+					transform: rotate(180deg);
+
+	.menu-item-has-children
+		position relative
+
+
+@media ({$tablet-widths})
+	.main-menu
+		&__item
 			position relative
+			&:hover > .sub-menu
+				display block
+	.sub-menu
+		position absolute
+		.icon
+			transform translateY(-50%) rotate(-90deg)
+		.sub-menu
+			left 100%
+			top 0
+
+	.dropdown-toggle
+		display none
+
 
 

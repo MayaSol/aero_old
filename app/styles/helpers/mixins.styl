@@ -5,6 +5,49 @@ clearfix()
 		clear both
 		content ''
 
+// Drop styles for button element
+btn()
+	display inline-block
+
+	font-weight 400
+
+	cursor pointer
+	user-select none
+	text-align center
+	vertical-align middle
+	white-space word-wrap
+	text-decoration none
+	text-transform uppercase
+
+	background-color transparent
+	border none
+	box-shadow none
+
+	/*	@include transition($btn-transition)*/
+
+	//&hover and focus styles
+	&:hover,
+	&:focus,
+	&.focus
+		text-decoration none
+
+		outline thin dotted
+		box-shadow none
+	//	box-shadow 1px 1px 0 rgba(125, 125, 125, 0.75)
+
+	// Disabled comes first so active can properly restyle
+	&.disabled,
+	&:disabled
+		opacity 0.65
+		box-shadow none
+
+	 &:active,
+	 &.active
+		 background-image none
+		 box-shadow none
+	//	 box-shadow inset 0 1px 4px rgba(125, 125, 125, 0.75)
+
+
 // Fix no working `-webkit-text-size-adjust: 100%;` in Android.
 fix-text-size-adjust()
 	background-image linear-gradient(transparent, transparent)

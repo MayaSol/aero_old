@@ -1,3 +1,5 @@
+include /blocks/burger/burger
+
 mixin main-menu(menuMods)
 
 	//- Принимает:
@@ -18,10 +20,10 @@ mixin main-menu(menuMods)
 		console.log(menuClass);
 
 	nav.main-menu(class=menuClass)&attributes(attributes)
-		button.menu-toggle(aria-controls='top-menu' aria-expanded='false')
+		+burger('Меню', 'primary-menu', 'main-menu__items--open')(aria-controls='top-menu' aria-expanded='false')
 		:php
 			wp_nav_menu( array(
 			'theme_location' => 'main-menu-top',
 			'menu_id'		=> 'primary-menu',
-			'menu_class'	=> 'main-menu',
+			'menu_class'	=> 'main-menu__items',
 			'container' => '') );

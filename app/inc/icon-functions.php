@@ -166,7 +166,7 @@ function aero_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 	if ( 'main-menu-top' === $args->theme_location ) {
 		foreach ( $item->classes as $value ) {
 			if ( 'menu-item-has-children' === $value || 'page_item_has_children' === $value ) {
-				$title = $title . aero_get_svg( array( 'icon' => 'angle-down' ) );
+				$title = $title . aero_get_svg( array( 'icon' => 'angle-down', 'size' => array('1em','1em') ) );
 			}
 		}
 	}
