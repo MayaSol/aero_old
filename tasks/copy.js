@@ -31,6 +31,12 @@ gulp.task('copy:php', () => (
 	})
 ));
 
+gulp.task('copy:img', () => (
+	gulp.src('app/blocks/**/img/*')
+		.pipe(rename({dirname: ''}))
+		.pipe(gulp.dest('dist/images/'))
+));
+
 gulp.task('copy:js', () => (
 	runSequence(
 		'copy:js-copy-files',
@@ -39,6 +45,7 @@ gulp.task('copy:js', () => (
 		'copy:js-del-temp'
 	)
 ));
+
 
 /*Copy js files from js and blocks folder*/
 gulp.task('copy:js-copy-files', function() {
@@ -69,3 +76,4 @@ gulp.task('copy:js-enque-insert', function() {
 gulp.task('copy:js-del-temp', function() {
 	del('app/all.php');
 });
+

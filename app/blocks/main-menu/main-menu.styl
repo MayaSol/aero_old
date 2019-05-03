@@ -30,8 +30,13 @@
 
 @media ({$mobile-widths-only})
 	.main-menu
+		&__top-inner
+			display flex
+			padding-top 10px
+			container()
 		&__items
 			display none
+			container()
 		&__items--open
 			display block
 		&__link
