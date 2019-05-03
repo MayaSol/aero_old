@@ -1,4 +1,6 @@
 include /blocks/burger/burger
+include /blocks/logo/logo
+include /blocks/site-title/site-title
 
 mixin main-menu(menuMods)
 
@@ -17,13 +19,16 @@ mixin main-menu(menuMods)
 			menuClass = menuClass + ' main-menu--' + modsList[i].trim();
 			}
 		}
-		console.log(menuClass);
 
 	nav.main-menu(class=menuClass)&attributes(attributes)
-		+burger('Меню', 'primary-menu', 'main-menu__items--open')(aria-controls='top-menu' aria-expanded='false')
+		.main-menu__top
+			.main-menu__top-inner
+				+site-title()
+				+burger('Меню', 'primary-menu', 'main-menu__items--open')(aria-controls='top-menu' aria-expanded='false')
 		:php
 			wp_nav_menu( array(
-			'theme_location' => 'main-menu-top',
-			'menu_id'		=> 'primary-menu',
-			'menu_class'	=> 'main-menu__items',
-			'container' => '') );
+				'theme_location' => 'main-menu-top',
+				'menu_id'		=> 'primary-menu',
+				'menu_class'	=> 'main-menu__items',
+				'container' => '')
+			);

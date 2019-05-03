@@ -5,6 +5,18 @@ clearfix()
 		clear both
 		content ''
 
+container()
+	width $container-mobile
+	margin-right auto
+	margin-left auto
+
+	@media ({$tablet-widths})
+		width $container-tablet
+
+	@media ({$desktop-widths})
+		width $container-desktop
+
+
 // Drop styles for button element
 btn()
 	display inline-block
