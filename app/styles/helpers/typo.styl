@@ -13,10 +13,10 @@ rem($px, $font-size = $font-size--base) {
   return ($px / $font-size) rem
 }
 
-$font-size = 1rem // rem(16px)
+$font-size = rem(14px)
 
-$font-size--h1 = rem(40px)
-$font-size--h2 = rem(32px)
+$font-size--h1 = rem(30px)
+$font-size--h2 = rem(24px)
 $font-size--h3 = rem(24px)
 $font-size--h4 = rem(18px)
 $font-size--h5 = rem(16px)
@@ -24,14 +24,14 @@ $font-size--h6 = rem(16px)
 
 $font-size--small = 80%
 
-$line-height = 1.5
+$line-height = rem(18px)
 
 $font-family =                  'Liberation Sans', -apple-system, BlinkMacSystemFont, 'Roboto', 'Ubuntu', 'Droid Sans', 'Helvetica Neue', 'Arial', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'
 $font-family--serif =           'Georgia', 'Times New Roman', 'Times', serif !default
 $font-family--monospace =       SFMono-Regular, 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace !default
 $font-family--headings =        'Univers Condensed', -apple-system, BlinkMacSystemFont, 'Roboto', 'Ubuntu', 'Droid Sans', 'Helvetica Neue', 'Arial', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'
 
-$text-color = hsl(0, 0%, 10%)
+$text-color = rgb(111, 111, 111)
 
 @font-face {
   font-family: 'Liberation Sans';
@@ -85,7 +85,7 @@ h4,
 h5,
 h6 {
 	font-family: $font-family--headings;
-	font-weight: 700;
+	font-weight: 400;
 	line-height: 1.2;
 	color: currentColor;
 }
@@ -105,33 +105,32 @@ h6 {
 }
 
 h1 {
-	/* font-size: #{(($font-size--h1 / ($font-size--h1 * 0 + 1)) * $font-size--base)}; */
-	font-size: $font-size--h1;
+	font-size $font-size--h1
+	color blue
+	margin-bottom 3rem
 }
 
 h2 {
-	/* font-size: #{(($font-size--h2 / ($font-size--h2 * 0 + 1)) * $font-size--base)}; */
-	font-size: $font-size--h2;
+	font-size $font-size--h2
+	color #666666
+	text-align center
+	margin-bottom 1.5rem
 }
 
 h3 {
-	/* font-size: #{(($font-size--h3 / ($font-size--h3 * 0 + 1)) * $font-size--base)}; */
 	font-size: $font-size--h3;
 }
 
 h4 {
-	/* font-size: #{(($font-size--h4 / ($font-size--h4 * 0 + 1)) * $font-size--base)}; */
 	font-size: $font-size--h4;
 }
 
 h5 {
-	/* font-size: #{(($font-size--h5 / ($font-size--h5 * 0 + 1)) * $font-size--base)}; */
 	font-size: $font-size--h5;
 }
 
 
 h6 {
-	/* font-size: #{(($font-size--h6 / ($font-size--h6 * 0 + 1)) * $font-size--base)}; */
 	font-size: $font-size--h6;
 }
 
@@ -144,8 +143,10 @@ blockquote,
 pre,
 address,
 figure {
-	margin-top: 0;
-	margin-bottom: 1rem;
+	margin-top 0
+	margin-bottom 1rem
 }
 
-
+p
+	text-align justify
+	margin-bottom 3rem

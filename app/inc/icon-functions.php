@@ -14,7 +14,7 @@ function aero_include_svg_icons() {
 	// Define SVG sprite file.
 	$svg_icons = get_parent_theme_file_path( '/images/svg-icons.svg' );
 
-	write_log($svg_icons);
+//	write_log($svg_icons);
 
 	// If it exists, include it.
 	if ( file_exists( $svg_icons ) ) {
@@ -61,7 +61,7 @@ function aero_get_svg( $args = array() ) {
 	// Parse args.
 	$args = wp_parse_args( $args, $defaults );
 
-	write_log($args);
+//	write_log($args);
 
 	// Set aria hidden.
 	$aria_hidden = ' aria-hidden="true"';

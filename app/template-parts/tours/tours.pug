@@ -1,0 +1,50 @@
+:php
+	/**
+	 * Template part for displaying 'Tours' block
+	 *
+	 * @package aero
+	 * <?php h2.tours__title <?php echo esc_html__($toursTitle); ?>
+	 */
+
+
+	$args = [
+		'post_type' => 'aero_tour',
+		'post_status' => 'published',
+		'orderby' => 'menu_order',
+		'order' => 'ASC'
+	];
+
+	$the_query = new WP_Query( $args );
+
+	if ( $the_query->have_posts() ) :
+
+include ../../blocks/or/or
+
+section.tours
+	:php
+		$postType = get_post_type_object($args['post_type']);
+		$toursTitle = $postType ? $postType->labels->name : '';
+		//- write_log('$toursTitle: ' . $toursTitle);
+		//- write_log('$postType: ');
+		//- write_log($postType);
+	+or('<h2 class="tours__title"><?php echo $toursTitle ?></h2>')
+	.tours__list
+		:php
+			/* Start the Loop */
+			while ( $the_query->have_posts() ) : $the_query->the_post();
+
+		<article id="post-<?php the_ID(); ?>" <?php post_class('tours__item'); ?>>
+
+		<div class="tours__preview">
+			<?php the_content();?>
+		</div>
+		:php
+			the_title( '<h3 class="tours__caption"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
+
+
+	:php
+		endwhile;
+|
+|
+<?php endif; ?>
+

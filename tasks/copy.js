@@ -8,16 +8,17 @@ import concat from 'gulp-concat';
 import merge from 'merge-stream';
 import runSequence from 'run-sequence';
 import del from 'del';
+import debug from 'gulp-debug';
 
 
 const {INCLUDE_ROBOTS} = process.env;
 const config = {
   //build: "/var/www/sweetcake/wp-content/themes/sweetcake/",
-  templates: ["", "inc/"],
+  templates: ["", "inc/", "template-parts/"],
   js: ['blocks/']
 }
 
-gulp.task('copy', () => (
+gulp.task('copy:resources', () => (
 	gulp.src('app/resources/**/*')
 		.pipe(changed('dist'))
 		.pipe(gulpIf(!INCLUDE_ROBOTS, filter(file => !/resources[\\\/]robots\.txt/.test(file.path))))
@@ -26,8 +27,8 @@ gulp.task('copy', () => (
 
 gulp.task('copy:php', () => (
 	config.templates.map(function(folder) {
-		gulp.src(['app/' + folder + '**/*.php','!app/blocks/**/*'])
-			.pipe(gulp.dest('dist/' + folder));
+		gulp.src(['app/' + folder + '**/*.php','!app/blocks/**/*','!app/~aux/**/*'])
+		.pipe(gulp.dest('dist/' + folder))
 	})
 ));
 

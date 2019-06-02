@@ -13,11 +13,13 @@ import sourcemaps from 'gulp-sourcemaps';
 import errorHandler from 'gulp-plumber-error-handler';
 import insert from 'gulp-insert';
 import gfi from 'gulp-file-insert';
+//import debug from 'gulp-debug';
 
 const isDebug = process.env.NODE_ENV !== 'production';
+console.log('isDebug: ' + isDebug);
 
 gulp.task('styles', () => (
-	gulp.src('app/styles/*.styl')
+	gulp.src('app/styles/app.styl')
 		.pipe(plumber({errorHandler: errorHandler(`Error in \'styles\' task`)}))
 		.pipe(gulpIf(isDebug, sourcemaps.init()))
 		.pipe(stylus({
@@ -32,14 +34,15 @@ gulp.task('styles', () => (
 				'__DEV__': isDebug
 			}
 		}))
-		//.pipe(gulpIf(!isDebug, gcmq()))
-		.pipe(gulpIf(!isDebug, nano({zindex: false})))
-		//.pipe(rename({suffix: '.min'}))
-		.pipe(gulpIf(isDebug, sourcemaps.write()))
-		.pipe(insert.prepend('/*Comments*/'))
-  		.pipe(gfi({
-    			"/*Comments*/": "app/styles/helpers/style-header",
-  		}))
+
+		 .pipe(gulpIf(!isDebug, nano({zindex: false})))
+		 .pipe(gulpIf(isDebug, sourcemaps.write()))
+		 .pipe(insert.prepend('/*Comments*/'))
+
+   		.pipe(gfi({
+     			"/*Comments*/": "app/styles/helpers/style-header",
+   		}))
+
 		.pipe(rename('style.css'))
 		.pipe(gulp.dest('dist'))
 ));

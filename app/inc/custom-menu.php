@@ -15,11 +15,11 @@ add_filter( 'nav_menu_css_class' , 'aero_nav_class' , 10, 4 );
 function aero_nav_links( $atts, $item, $args ) {
     // Manipulate attributes
 
-    write_log('$args: ');
-    write_log($args);
+//    write_log('$args: ');
+//    write_log($args);
 
 	$menu_class = strpos($args->menu_class,'__') ? strstr($args->menu_class,'__',true) : $args->menu_class;
-	write_log('$menu_class: ' . $menu_class);
+//	write_log('$menu_class: ' . $menu_class);
 	$atts['class'] = $menu_class . '__link';
 
     return $atts;

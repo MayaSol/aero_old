@@ -1,0 +1,65 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-31 17:18+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: dist/template-parts/content-none.php:24
+#: dist/template-parts/content-none.php:24
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: dist/template-parts/content.php:39 dist/template-parts/content.php:39
+#, php-format
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr ""
+
+#: dist/template-parts/content-page.php:35 dist/inc/template-tags.php:99
+#: dist/template-parts/content-page.php:36 dist/inc/template-tags.php:99
+#, php-format
+msgid "Edit <span class=\"screen-reader-text\">%s</span>"
+msgstr ""
+
+#: dist/inc/icon-functions.php:44 dist/inc/icon-functions.php:44
+msgid "Please define default parameters in the form of an array."
+msgstr ""
+
+#: dist/inc/icon-functions.php:49 dist/inc/icon-functions.php:49
+msgid "Please define an SVG icon filename."
+msgstr ""
+
+#: dist/inc/template-tags.php:82 dist/inc/template-tags.php:82
+#, php-format
+msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr ""
+
+#: dist/inc/custom-post-types.php:18 dist/inc/custom-post-types.php:18
+msgid "Virtual Tours"
+msgstr "Виртуальные туры"
+
+#: dist/inc/custom-post-types.php:19 dist/inc/custom-post-types.php:19
+msgid "Virtual Tour"
+msgstr ""
+
+#: dist/functions.php:136 dist/functions.php:137 dist/functions.php:137
+msgid "Expand child menu"
+msgstr ""
+
+#: dist/functions.php:137 dist/functions.php:138 dist/functions.php:138
+msgid "Collapse child menu"
+msgstr ""

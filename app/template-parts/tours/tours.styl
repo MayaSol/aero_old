@@ -1,0 +1,32 @@
+.tours
+	&__title
+		margin 0
+		color $darker-grey
+		text-transform uppercase
+		a,
+		a:visited,
+		a:active
+			color $darker-grey
+	&__item
+		margin 0 auto
+	&__preview
+		a
+			font-size 0
+		p
+			margin-bottom 20px
+	.or
+		margin-bottom 30px
+	&__caption
+		font-size $font-size
+		font-family $font-family
+		a,
+		a:visited,
+		a:active
+			font-size $font-size
+			color $grey
+
+@media ({$tablet-widths})
+	.tours
+		&__item
+			display inline-block
+			width 130px

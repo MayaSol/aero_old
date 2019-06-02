@@ -25,10 +25,25 @@ gulp.task('build', () => (
 		'clean',
 		'styles:dependencies',
 		'scripts',
-		'copy',
 		'copy:js',
 		'copy:php',
 		'templates',
+		'i18n',
+		'copy:resources',
+		'deploy'
+	)
+));
+
+gulp.task('test', () => (
+	runSequence(
+//		'clean',
+//		'styles:dependencies',
+//		'scripts',
+//		'copy:js',
+		'copy:php',
+		'templates',
+//		'i18n',
+//		'copy:resources',
 		'deploy'
 	)
 ));

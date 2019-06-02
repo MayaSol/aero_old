@@ -12,6 +12,7 @@ import rename from 'gulp-rename';
 import errorHandler from 'gulp-plumber-error-handler';
 import getData from 'jade-get-data';
 import staticHash from 'gulp-static-hash';
+import debug from 'gulp-debug';
 
 const data = {
 	getData: getData('app/data'),
@@ -20,12 +21,19 @@ const data = {
 	__DEV__: process.env.NODE_ENV !== 'production'
 };
 
-gulp.task('templates', () => (
-	gulp.src('app/**/*.pug')
+console.log('process.env.NODE_ENV = ' + process.env.NODE_ENV);
+
+
+gulp.task('templates', () => {
+	const pugFilter = filter(['**/pages/**/*.pug','**/template-parts/**/*.pug'],{restore: true});
+	const pagesFilter = filter('**/pages/**/*.*',{restore:true});
+
+	return gulp.src('app/**/*.pug')
 		.pipe(plumber({errorHandler: errorHandler(`Error in \'templates\' task`)}))
-		.pipe(cached('pug'))
+		//.pipe(cached('pug'))
 		.pipe(gulpIf(global.watch, inheritance({basedir: 'app'})))
-		.pipe(filter(file => /app[\\\/]pages/.test(file.path)))
+//		.pipe(filter(file => /app[\\\/]pages/.test(file.path)))
+		.pipe(pugFilter)
 		//.pipe(jade({basedir: 'app', data}))
 		.pipe(pug({ basedir: 'app', data, filters: { php: pugPHPFilter } }))
 		.pipe(gulpIf(process.env.PRETTIFY !== 'false', prettify({
@@ -43,9 +51,15 @@ gulp.task('templates', () => (
 			asset: 'dist',
 			exts: ['js', 'css']
 		})))
+		.pipe(pagesFilter)
 		.pipe(rename({dirname: '.', extname: '.php'}))
 		.pipe(gulp.dest('dist'))
-));
+		.pipe(pagesFilter.restore)
+		.pipe(filter('**/template-parts/**/*.*',{restore:true}))
+		.pipe(rename({dirname: '.', extname: '.php'}))
+		.pipe(gulp.dest('dist/template-parts/'))
+
+});
 
 gulp.task('templates:lint', () =>
 	gulp

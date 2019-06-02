@@ -24,6 +24,7 @@ if ( ! function_exists( 'aero_setup' ) ) :
 		 * to change 'aero' to the name of your theme in all the template files.
 		 */
 		load_theme_textdomain( 'aero', get_template_directory() . '/languages' );
+		write_log(get_template_directory());
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -158,6 +159,11 @@ require get_template_directory() . '/inc/custom-menu.php';
 /**
 */
 require get_template_directory() . '/inc/icon-functions.php';
+
+/**
+* Custom post types
+*/
+require get_template_directory() . '/inc/custom-post-types.php';
 
 
 /**
